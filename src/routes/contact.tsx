@@ -32,7 +32,7 @@ function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Call, message or just walk in."
-        intro="Contact details below are placeholders until the restaurant confirms them."
+        intro="Near Jagadhri Club, Civil Line, Jagadhri — call us on 72067-22217 or 72068-22217."
       />
 
       <section className="bg-cream py-16 lg:py-24">

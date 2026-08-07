@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
 import { useContent } from "@/lib/content";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   const { business } = useContent();
@@ -9,7 +10,7 @@ export function Footer() {
     <footer className="bg-charcoal-deep text-cream">
       <div className="shell grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr] md:py-20">
         <div>
-          <p className="font-display text-3xl font-extrabold text-cream">Hey Foodies</p>
+          <img src={logo} alt="Hey Foodies" className="h-14 w-auto brightness-0 invert" width={220} height={56} />
           <p className="mt-3 max-w-xs text-sm text-cream/60">{business.tagline}</p>
           <div className="mt-6 flex gap-2">
             <a
@@ -80,7 +81,7 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <div className="shell flex flex-col gap-2 py-6 text-xs text-cream/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Hey Foodies. All rights reserved.</p>
-          <p>Contact details are placeholders pending confirmation.</p>
+          <p>Good food. Good mood.</p>
         </div>
       </div>
     </footer>

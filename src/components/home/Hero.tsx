@@ -1,19 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone } from "lucide-react";
-import heroBurger from "@/assets/hero-burger.png";
+import heroBurger from "@/assets/veg-burger-hero.png.asset.json";
 import { useContent } from "@/lib/content";
 
 export function Hero() {
   const { business } = useContent();
 
   return (
-    <section className="relative overflow-hidden bg-charcoal-deep pt-28 pb-24 text-cream sm:pt-32 lg:pb-32">
+    <section className="relative overflow-hidden bg-charcoal-deep pt-24 pb-20 sm:pb-24 text-cream sm:pt-32 lg:pb-32">
       <div className="pointer-events-none absolute -right-24 top-24 hidden h-[34rem] w-[34rem] dashed-ring lg:block" />
       <div className="pointer-events-none absolute right-6 top-10 h-3 w-3 rounded-full bg-brand" />
       <div className="pointer-events-none absolute left-[46%] bottom-24 h-2 w-2 rounded-full bg-cream/50" />
 
       <div className="shell relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
-        <div className="relative z-10">
+        <div className="relative z-10 enter-rise">
           <p className="eyebrow text-brand">Pizza · Burgers · Wraps</p>
           <h1 className="mt-5 display-xl text-cream">
             Big flavour.
@@ -36,7 +36,7 @@ export function Hero() {
               </svg>
             </span>
           </h1>
-          <p className="mt-8 max-w-md text-base leading-relaxed text-cream/65">
+          <p className="mt-6 max-w-md text-base sm:mt-8 leading-relaxed text-cream/65">
             Hot pizza, stacked burgers and rolls made fresh through the day — served in a
             bright, colourful dining room built for hanging out.
           </p>
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
               to="/menu"
-              className="group inline-flex h-12 items-center gap-2 rounded-md bg-brand px-6 text-sm font-extrabold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="tap group inline-flex h-12 items-center gap-2 rounded-md bg-brand px-6 text-sm font-extrabold text-brand-foreground hover:-translate-y-0.5"
             >
               Explore Menu
               <ArrowRight
@@ -54,7 +54,7 @@ export function Hero() {
             </Link>
             <a
               href={business.phoneHref}
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-cream/25 px-6 text-sm font-bold text-cream transition-colors hover:bg-cream/10"
+              className="tap inline-flex h-12 items-center gap-2 rounded-md border border-cream/25 px-6 text-sm font-bold text-cream hover:bg-cream/10"
             >
               <Phone className="h-4 w-4" aria-hidden />
               {business.phone}
@@ -74,16 +74,17 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
+          <div className="enter-pop relative mx-auto aspect-square w-full max-w-[34rem]">
             <div className="absolute inset-0 rounded-full bg-brand" />
             <div className="absolute -inset-4 rounded-full border border-brand/25" />
             <img
-              src={heroBurger}
-              alt="Double cheeseburger from Hey Foodies"
+              src={heroBurger.url}
+              alt="Veg burger from Hey Foodies"
               width={1200}
               height={1200}
-              className="relative z-10 h-full w-full -translate-y-10 scale-110 object-contain drop-shadow-[0_28px_36px_rgba(0,0,0,0.35)]"
+              className="relative z-10 h-full w-full rounded-full object-cover drop-shadow-[0_28px_36px_rgba(0,0,0,0.35)]"
             />
+
 
 
           </div>

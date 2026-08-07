@@ -32,12 +32,12 @@ function MenuPage() {
       <PageHero
         eyebrow="The menu"
         title="Everything coming out of our kitchen."
-        intro="Prices and items shown here are placeholders while the final menu is confirmed."
+        intro="All prices include GST. Extra disposal & oregano/chilli flakes chargeable."
       />
 
       <section className="bg-cream py-14 lg:py-20">
         <div className="shell">
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Menu categories">
+          <div className="flex w-full max-w-full snap-x gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-x-visible" role="tablist" aria-label="Menu categories">
             {[{ id: "all", name: "Everything" }, ...menu].map((c) => (
               <button
                 key={c.id}
@@ -45,7 +45,7 @@ function MenuPage() {
                 role="tab"
                 aria-selected={active === c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-md px-4 py-2 text-sm font-bold transition-colors ${
+                className={`tap shrink-0 snap-start rounded-md px-4 py-2 text-sm font-bold ${
                   active === c.id
                     ? "bg-charcoal-deep text-cream"
                     : "border border-border text-charcoal hover:bg-secondary"
@@ -56,7 +56,7 @@ function MenuPage() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-16">
+          <div className="mt-10 grid gap-12 sm:mt-14 sm:gap-16">
             {shown.map((cat) => (
               <div key={cat.id} className="grid gap-8 lg:grid-cols-[16rem_1fr]">
                 <div>
@@ -67,7 +67,7 @@ function MenuPage() {
                   {cat.items.map((item) => (
                     <li
                       key={item.name}
-                      className="flex items-baseline gap-4 bg-card px-5 py-5 transition-colors hover:bg-accent"
+                      className="tap-card flex items-baseline gap-4 bg-card px-4 py-4 hover:bg-accent sm:px-5 sm:py-5"
                     >
                       <div className="min-w-0">
                         <p className="font-display text-lg font-extrabold text-charcoal-deep">
@@ -102,7 +102,7 @@ function MenuPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href={business.phoneHref}
-              className="inline-flex h-12 items-center rounded-md bg-brand px-6 text-sm font-extrabold text-brand-foreground transition-transform hover:-translate-y-0.5"
+              className="tap inline-flex h-12 items-center rounded-md bg-brand px-6 text-sm font-extrabold text-brand-foreground hover:-translate-y-0.5"
             >
               Call {business.phone}
             </a>
@@ -110,7 +110,7 @@ function MenuPage() {
               href={business.whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center rounded-md border border-cream/25 px-6 text-sm font-bold text-cream transition-colors hover:bg-cream/10"
+              className="tap inline-flex h-12 items-center rounded-md border border-cream/25 px-6 text-sm font-bold text-cream hover:bg-cream/10"
             >
               WhatsApp
             </a>

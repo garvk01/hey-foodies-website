@@ -615,26 +615,14 @@ async function signRows(rows: GalleryRow[]) {
   return rows.map((r) => ({ ...r, preview: r.storage_path ? (map.get(r.storage_path) ?? r.url) : r.url }));
 }
 
-// async function uploadGalleryFile(file: File) {
-//   const ext = file.name.split(".").pop() ?? "jpg";
-//   const path = `${crypto.randomUUID()}.${ext}`;
-//   const { error } = await supabase.storage.from("gallery").upload(path, file, { upsert: false });
-//   if (error) throw new Error(error.message);
-//   return path;
-// }
 async function uploadGalleryFile(file: File) {
   const ext = file.name.split(".").pop() ?? "jpg";
-  const uniqueId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  const path = `${uniqueId}.${ext}`;
-
-  const { error } = await supabase.storage
-    .from("gallery")
-    .upload(path, file, { upsert: false });
-
+  const path = `${crypto.randomUUID()}.${ext}`;
+  const { error } = await supabase.storage.from("gallery").upload(path, file, { upsert: false });
   if (error) throw new Error(error.message);
-
   return path;
 }
+
 function GalleryTab() {
   const invalidate = useInvalidate();
   const [busy, setBusy] = useState(false);

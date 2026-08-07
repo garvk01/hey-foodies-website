@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { useContent } from "@/lib/content";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -33,12 +34,13 @@ export function Header() {
           }`}
         >
           <Link to="/" className="flex items-center gap-2 pr-2" onClick={() => setOpen(false)}>
-            <span className="grid h-9 w-9 place-items-center rounded-md bg-charcoal font-display text-lg font-extrabold text-brand">
-              H
-            </span>
-            <span className="font-display text-lg font-extrabold tracking-tight text-charcoal-deep">
-              Hey Foodies
-            </span>
+            <img
+              src={logo}
+              alt="Hey Foodies"
+              className="h-9 w-auto sm:h-10"
+              width={160}
+              height={40}
+            />
           </Link>
 
           <nav className="ml-auto hidden items-center gap-1 lg:flex">
@@ -60,13 +62,13 @@ export function Header() {
             <a
               href={business.phoneHref}
               aria-label={`Call ${business.name}`}
-              className="hidden h-10 w-10 place-items-center rounded-md border border-border text-charcoal transition-colors hover:bg-secondary sm:grid"
+              className="tap hidden h-10 w-10 place-items-center rounded-md border border-border text-charcoal hover:bg-secondary sm:grid"
             >
               <Phone className="h-4 w-4" aria-hidden />
             </a>
             <a
               href={business.orderHref}
-              className="inline-flex h-10 items-center rounded-md bg-brand px-4 text-sm font-bold text-brand-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal"
+              className="tap inline-flex h-10 items-center rounded-md bg-brand px-4 text-sm font-bold text-brand-foreground hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal"
             >
               Order Now
             </a>
@@ -75,7 +77,7 @@ export function Header() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
-              className="grid h-10 w-10 place-items-center rounded-md border border-border text-charcoal lg:hidden"
+              className="tap grid h-10 w-10 place-items-center rounded-md border border-border text-charcoal lg:hidden"
             >
               {open ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
             </button>
@@ -83,7 +85,7 @@ export function Header() {
         </div>
 
         {open && (
-          <div className="mt-2 rounded-xl bg-cream p-3 shadow-lift lg:hidden">
+          <div className="enter-rise mt-2 rounded-xl bg-cream p-3 shadow-lift lg:hidden">
             <nav className="grid">
               {links.map((l) => (
                 <Link
@@ -92,7 +94,7 @@ export function Header() {
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: l.to === "/" }}
                   activeProps={{ className: "text-brand-deep" }}
-                  className="rounded-md px-3 py-3 text-base font-semibold text-charcoal hover:bg-secondary"
+                  className="tap rounded-md px-3 py-3 text-base font-semibold text-charcoal hover:bg-secondary"
                 >
                   {l.label}
                 </Link>
@@ -101,7 +103,7 @@ export function Header() {
             <div className="mt-2 grid grid-cols-2 gap-2">
               <a
                 href={business.phoneHref}
-                className="rounded-md border border-border px-3 py-3 text-center text-sm font-bold text-charcoal"
+                className="tap rounded-md border border-border px-3 py-3 text-center text-sm font-bold text-charcoal"
               >
                 Call
               </a>
@@ -109,7 +111,7 @@ export function Header() {
                 href={business.mapsHref}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md border border-border px-3 py-3 text-center text-sm font-bold text-charcoal"
+                className="tap rounded-md border border-border px-3 py-3 text-center text-sm font-bold text-charcoal"
               >
                 Directions
               </a>

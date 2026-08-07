@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { ArrowRight } from "lucide-react";
 import interior from "@/assets/Screenshot_2026-08-01_001017.png.asset.json";
 
 export function Story() {
   return (
-    <section className="bg-cream py-20 lg:py-28">
-      <div className="shell grid items-center gap-14 lg:grid-cols-2">
-        <div className="relative">
+    <section className="bg-cream py-16 sm:py-20 lg:py-28">
+      <div className="shell grid items-center gap-10 sm:gap-14 lg:grid-cols-2">
+        <Reveal className="relative">
           <div className="absolute -left-6 -top-6 h-40 w-40 rounded-full bg-brand/25" />
           <img
             src={interior.url}
@@ -22,9 +23,9 @@ export function Story() {
               Warm lights, bright seats, zero fuss.
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={90}>
           <p className="eyebrow text-brand-deep">Who we are</p>
           <h2 className="mt-4 display-lg text-charcoal-deep">
             A neighbourhood kitchen with a loud appetite.
@@ -40,12 +41,12 @@ export function Story() {
           </p>
           <Link
             to="/about"
-            className="group mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-charcoal-deep"
+            className="tap group mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-charcoal-deep"
           >
             More about us
             <ArrowRight className="h-4 w-4 text-brand-deep transition-transform group-hover:translate-x-1" aria-hidden />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

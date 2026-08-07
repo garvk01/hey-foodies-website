@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { useContent } from "@/lib/content";
+import { Reveal } from "@/components/Reveal";
 import shot1 from "@/assets/Screenshot_2026-08-01_001017.png.asset.json";
 import shot2 from "@/assets/Screenshot_2026-08-01_001025.png.asset.json";
 import shot3 from "@/assets/Screenshot_2026-08-01_002252.png.asset.json";
@@ -26,7 +27,7 @@ export function GalleryStrip() {
     : fallbackShots;
 
   return (
-    <section className="bg-charcoal-deep py-20 text-cream lg:py-28">
+    <section className="bg-charcoal-deep py-16 text-cream sm:py-20 lg:py-28">
       <div className="shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -39,16 +40,16 @@ export function GalleryStrip() {
           </Link>
         </div>
 
-        <div className="mt-12 grid auto-rows-[180px] gap-4 sm:grid-cols-4">
-          {shots.map((s) => (
-            <figure key={s.src} className={`overflow-hidden rounded-lg ${s.span}`}>
+        <div className="mt-10 grid auto-rows-[150px] gap-3 sm:mt-12 sm:auto-rows-[180px] sm:grid-cols-4 sm:gap-4">
+          {shots.map((s, i) => (
+            <Reveal as="figure" key={s.src} delay={i * 70} className={`overflow-hidden rounded-lg ${s.span}`}>
               <img
                 src={s.src}
                 alt={s.alt}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
-            </figure>
+            </Reveal>
           ))}
         </div>
       </div>

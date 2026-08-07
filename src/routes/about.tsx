@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import interior from "@/assets/Screenshot_2026-08-01_001025.png.asset.json";
-import wrap from "@/assets/wrap.png";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -70,14 +70,6 @@ function AboutPage() {
               alt="Hey Foodies dining area with wall quotes and colourful chairs"
               loading="lazy"
               className="w-full rounded-xl object-cover shadow-lift"
-            />
-            <img
-              src={wrap}
-              alt="Chicken wrap sliced in half"
-              loading="lazy"
-              width={1024}
-              height={1024}
-              className="absolute -bottom-10 -left-8 hidden w-40 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)] sm:block float-slow"
             />
           </div>
         </div>
