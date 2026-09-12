@@ -2,8 +2,6 @@
 
 **Live Website:** https://www.heyfood.co.in
 
-**GitHub Repository:** https://github.com/heyfoodiesjgd-lgtm/HeyFoodies
-
 ---
 
 ## Table of Contents
